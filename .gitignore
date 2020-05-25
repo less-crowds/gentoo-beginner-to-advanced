@@ -4,6 +4,8 @@
 *.ps
 *.dvi
 *.nav
-*,snm
+*.snm
+*.toc
+*.out
 
 
