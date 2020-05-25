@@ -1,0 +1,9 @@
+# LaTeX
+*.log
+*.aux
+*.ps
+*.dvi
+*.nav
+*,snm
+
+

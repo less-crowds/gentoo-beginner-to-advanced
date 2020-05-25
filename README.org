@@ -1,0 +1,47 @@
+* gentoo-beginner-to-advanced
+gentoo from  beginner to advanced
+
+
+** 关于这个课程
+
+这个课程主要将会讲述从初学者到能够熟练使用gentoo并且掌握一些奇怪的姿势
+
+** TODO 章节列表 
+中文支持（roff）还没有添加
+
+
+| 章节      | 内容                                 | 状态 |
+|-----------+--------------------------------------+------|
+| chapter1  | 简介                                 | todo |
+| chapter2  | 为什么选择gentoo(其他系统之间的对比) | todo |
+| chapter3  | 硬件介绍                             | todo |
+| chapter4  | 分区配置                             |      |
+| chapter5  | 文件系统对比(vfs,btrfs,zfs,ext4,xfs) |      |
+| chapter6  | GPG                                  |      |
+| chapter7  | LUKS                                 |      |
+| chapter8  | Install Stage3                       |      |
+| chapter9  | bootstrap script                     |      |
+| chapter10 | Kernel                               |      |
+| chapter11 | 系统配置                             |      |
+| chapter12 | SELINUX                              |      |
+| chapter13 | 用户配置                             |      |
+| chapter14 | suckless                             |      |
+| chapter15 | 其他配置                             |      |
+| chapter16 | openPGP                              |      |
+| chapter17 | 维护工具箱                           |      |
+| chapter18 | bug 修复                             |      |
+| chapter19 | overlay                              |      |
+| chapter20 | stow                                 |      |
+| chapter21 | unstable stage                       |      |
+| chapter22 | cron                                 |      |
+| chapter23 | kvm                                  |      |
+| chapter24 | docker                               |      |
+| chapter25 | portage                              |      |
+
+
+** TODO 书籍
+
+
+
+
+
