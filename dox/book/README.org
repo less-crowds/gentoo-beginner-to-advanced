@@ -1,0 +1,27 @@
+*  Gentoo Handbook
+
+
+快点写咕咕咕！
+
+
+
+** 如何使用
+
+确保你安装好了 make 和 xelatex 渲染引擎
+
+使用到的宏包
+
+- ctex
+- xcolor
+
+#+BEGIN_SRC shell
+make doc
+#+END_SRC
+
+
+清理
+
+#+BEGIN_SRC shell
+make clean
+#+END_SRC
+
