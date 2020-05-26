@@ -1,0 +1,8 @@
+\chapter{配置系统工具}
+\begin{lstlisting}
+  emerge -av app-admin/sysklogd sys-process/cronie sudo layman grub
+  sed -i 's/\# \%wheel ALL=(ALL) ALL/\%wheel ALL=(ALL) ALL/g' /etc/sudoers
+  passwd
+  rc-update add sysklogd default
+  rc-update add cronie default
+\end{lstlisting}

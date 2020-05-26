@@ -1,0 +1,10 @@
+\chapter{配置内核}
+配置文件可以看 当前的文件夹的 etc/kernel/.config
+
+\begin{lstlisting}
+  make oldconfig
+  make -j40
+  make modules_install
+  make install
+  
+\end{lstlisting}

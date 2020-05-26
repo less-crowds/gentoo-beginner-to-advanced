@@ -1,0 +1,37 @@
+
+\chapter{磁盘分区}
+\section{分区表}
+\begin{tabular}{|l|r|r|r|}
+  \hline
+  物理位置 & 挂载点 & 文件系统 & 大小 \\
+  \hline
+  /dev/sda1 & /boot & ext2 & 200M \\
+  \hline
+  /dev/sda2 & swap & swap & 8G \\
+  \hline
+  /dev/sda3 & / & ext4 & 20G \\
+  \hline
+\end{tabular}
+
+swap 分区可以按照你的物理内存大小＊2来进行划分，如果你的内存大于32G 也可以选择不分swap，但是还是建议单独分出来swap之后的休眠会用到。 
+\section{分区}
+
+\begin{lstlisting}[language=Bash]
+  fdisk /dev/sda
+\end{lstlisting}
+
+\subsection{格式化分区}
+
+\begin{lstlisting}[language=Bash]
+  mkfs.ext2 /dev/sda1
+  mkswap /dev/sda2
+  mkfs.ext4 /dev/sda3 
+\end{lstlisting}
+
+\subsection{挂载分区}
+\begin{lstlisting}[language=Bash]
+  mkdir -pv /mnt/gentoo
+  mount /dev/sda2 /mnt/gentoo
+  mkdir -pv /mnt/gentoo/boot
+  mount /dev/sda1 /mnt/gentoo/boot
+\end{lstlisting}

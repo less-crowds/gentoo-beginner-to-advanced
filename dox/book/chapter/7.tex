@@ -1,0 +1,20 @@
+\section{时间和地区}
+\begin{lstlisting}
+echo "Asia/Shanghai" > /etc/timezone
+emerge --config sys-libs/timezone-data
+echo "en_US.UTF-8 UTF-8
+zh_CN.UTF-8 UTF-8" >> /etc/locale.gen
+locale-gen
+eselect locale list
+
+\end{lstlisting}
+
+安装必要的包
+
+\begin{lstlisting}
+  emerge -av gentoo-sources genkernel 
+\end{lstlisting}
+\section{配置主机名称}
+\begin{lstlisting}
+  echo hostname=\"Test\" > /etc/conf.d/hostname
+\end{lstlisting}

@@ -1,0 +1,73 @@
+
+
+\chapter{安装基本系统}
+
+\begin{lstlisting}
+  mkdir --parents /mnt/gentoo/etc/portage/repos.conf
+  cp /mnt/gentoo/usr/share/portage/config/repos.conf /mnt/gentoo/etc/portage/repos.conf/gentoo.conf
+\end{lstlisting}
+
+\section{进入chroot}
+\begin{lstlisting}
+  cp --dereference /etc/resolv.conf /mnt/gentoo/etc/
+
+  mount --types proc /proc /mnt/gentoo/proc
+  mount --rbind /sys /mnt/gentoo/sys
+  mount --make-rslave /mnt/gentoo/sys
+  mount --rbind /dev /mnt/gentoo/dev
+  mount --make-rslave /mnt/gentoo/dev
+  test -L /dev/shm && rm /dev/shm && mkdir /dev/shm
+  mount --types tmpfs --options nosuid,nodev,noexec shm /dev/shm
+  chmod 1777 /dev/shm
+  chroot /mnt/gentoo /bin/bash
+  source /etc/profile
+  export PS1="(chroot) ${PS1}"
+
+
+  
+\end{lstlisting}
+
+\subsection{同步portage树}
+可以使用
+\begin{lstlisting}
+  emerge-webrsync
+\end{lstlisting}
+来进行快速同步。
+
+也可以在同步完成之后进行增量同步
+
+\begin{lstlisting}
+  emerge --sync
+\end{lstlisting}
+
+\subsection{阅读新闻}
+\begin{lstlisting}
+  eselect news list
+  eselect news read
+\end{lstlisting}
+
+\subsection{选择系统profile}
+\begin{lstlisting}
+  eselect profile list
+  eselect profile set
+    [16]  default/linux/amd64/17.1 (stable) *
+\end{lstlisting}
+\subsection{可选 Portage Tmpfs}
+为了加快编译的速度可以将配置文件放在内存中编译。
+\begin{lstlisting}
+  tmpfs /var/tmp         tmpfs rw,nosuid,noatime,nodev,size=20G,mode=1777 0 0
+tmpfs /var/tmp/portage tmpfs rw,nosuid,noatime,nodev,size=40G,mode=775,uid=portage,gid=portage,x-mount.mkdir=775 0 0
+\end{lstlisting}
+
+
+\subsection{升级系统}
+\begin{lstlisting}
+  emerge --ask --verbose --update --deep --newuse @world
+\end{lstlisting}
+
+等到这些运行完了之后别着急再运行下面这几条
+\begin{lstlisting}
+  emerge @preserved-rebuild
+  perl-cleaner --all
+  emerge -auvDN --with-bdeps=y @world
+\end{lstlisting}

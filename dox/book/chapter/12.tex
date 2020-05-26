@@ -1,0 +1,18 @@
+\chapter{Bootload}
+\section{配置fstab}
+
+
+\begin{lstlisting}
+  wget https://raw.githubusercontent.com/YangMame/Gentoo-Installer/master/genfstab
+  chmod +x genfstab
+  mv genfstab /usr/bin
+  genfstab -U / > /etc/fstab 
+\end{lstlisting}
+
+\section{安装grub}
+
+\begin{lstlisting}
+  emerge -av grub
+  grub-install /dev/sda
+  grub-mkconfig -o /boot/grub/grub.cfg
+\end{lstlisting}

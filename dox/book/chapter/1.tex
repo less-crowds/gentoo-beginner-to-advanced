@@ -1,0 +1,114 @@
+\chapter{简介}
+\section{关于这本书}
+这本书
+\section{关于作者}
+\section{感谢}
+
+
+\chapter{Why Gentoo}
+\section{什么是Linux}
+\section{关于GNU/Linux发行版}
+
+\chapter{文件系统}
+\section{VFS}
+\section{ext2}
+\section{ext4}
+\section{xfs}
+\section{zfs}
+\section{btrfs}
+
+\chapter{缓存}
+\section{bcache}
+\section{lvm-cache}
+\section{dm-cache}
+\chapter{GPG}
+\section{什么是GPG}
+\section{定义你的id}
+
+\chapter{LUKS}
+\section{VFS 和 LUKS}
+
+\chapter{组合说明}
+\section{Less sometimes is more}
+\section{极致的安全}
+
+\chapter{准备环境}
+\section{环境说明}
+\subsection{硬件环境}
+这次安装的硬件环境 \ref{table:1} 。
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{||c| c| c| c|c||} 
+ \hline
+ CPU  & Memory  & Hard Disk & Wireless & Boot Firmware\\ [1ex]
+
+ \hline
+ i5-2450M & 2G*2    & 90G SSD*1 & AR9380 & coreboot\\
+ \hline
+\end{tabular}
+\caption{ThinkPad X220 }
+\label{table:1}
+\end{table}
+
+%\begin{tabular}{ |p|p|p|p|p|  }
+% \hline
+% \multicolumn{5}{|c|}{ThinkPad X220} \\
+% \hline
+% CPU  & Memory  & Hard Disk & Wireless & Boot Firmware\\
+% \hline
+% i5-2450M & 2G*2    & 90G SSD*1 & AR9380 & coreboot\\
+% \hline
+% \end{tabular}
+
+同时需要以下设备
+\begin{enumerate}
+\item U盘*2(一个存储key)
+\item 一台工作正常的笔记本
+\item 可以访问Google
+  \begin{itemize}
+    \item 出现问题可以方便排查问题
+  \end{itemize}
+\item 稳定的网络
+  \item \href{https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/master/README-zh_CN.md}{提问的艺术}
+\end{enumerate}
+
+
+
+\subsection{准备知识}
+\href{https://wiki.gentoo.org/wiki/Eselect}{Eselect}是一个很方便配置系统的工具。
+
+\subsection{准备Gentoo Linux安装介质}
+Gentoo有两种安装iso一种是最小化的iso叫做install-x86-minimal-<release>.iso另外一种是Gentoo livecd 有一个kde的桌面环境方便联网查询问题安装，我这里使用的是最小化的安装介质来安装。
+\subsection{stage文件}
+stage3压缩包是一个包含有最小化Gentoo环境的文件，可用来按照本手册介绍继续安装Gentoo。以前的Gentoo手册描述了使用三个 stage tarballs的其中一个来进行安装。现在Gentoo仍然提供stage1和stage2的压缩包，但是官方安装方法只使用stage3压缩包。也可以看我的另外cataly构建系统文章。
+
+
+\subsection{下载安装iso与stage文件}
+\subsubsection{下载iso}
+Gentoo Linux使用最小化安装CD做为默认安装媒介，它带有一个非常小的可引导的Gentoo Linux环境。此环境包含所有正确的安装工具. CD镜像本身可以从
+\href{http://distfiles.gentoo.org/releases/amd64/autobuilds/}{官方下载页面}下载(推荐) 或者是下面的镜像站\href{https://mirror.tuna.tsinghua.edu.cn/gentoo/releases/amd64/autobuilds/}{清华大学源}进行下载。
+
+在这些镜像站上，最小化安装CD可以通过以下方式找到：
+\begin{enumerate}
+\item 进入 releases/ 目录
+\item 选择对应的架构，我们的是amd64
+\item 选择autobuilds目录
+\item 对于amd64和x86的平台的用户需要选择 current-install-amd64-minimal/ 或 current-install-x86-minimal/ 目录。如果需要所有其它平台的，请进入 current-iso/ 目录。
+\end{enumerate}
+
+下载之后要对下载好的iso文件进行校验防止到时候出现无法使用的问题。
+
+
+\subsubsection{下载stage3文件}
+进入镜像站的/gentoo/releases/amd64/autobuilds/目录
+如果你对systemd没有则进入current-stage3-amd64/目录选择最新的stage3下载到本地。
+
+
+\subsection{在Linux下制作安装介质}
+
+\begin{lstlisting}[language=Bash]
+  dd if=gentoo.iso of=/dev/sdb bs=10M
+\end{lstlisting}
+\subsection{在Windows上准备安装介质}
+可以使用软碟通之类的软件进行刻录
