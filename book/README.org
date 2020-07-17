@@ -1,0 +1,58 @@
+*  Gentoo 
+快点写咕咕咕！
+
+** 如何使用
+
+确保你安装好了 make 和 xelatex 渲染引擎
+
+使用到的宏包
+
+- ctex
+- xcolor
+
+#+BEGIN_SRC shell
+xelatex main.tex
+#+END_SRC
+
+文章结构
+#+BEGIN_SRC shell
+tree .
+.
+├── Makefile
+├── README.org
+├── chapter
+│   ├── 10.tex
+│   ├── 11.tex
+│   ├── 12.tex
+│   ├── 13.tex
+│   ├── 14.tex
+│   ├── 15.tex
+│   ├── 16.tex
+│   ├── 17.tex
+│   ├── 18.tex
+│   ├── 19.tex
+│   ├── 2.tex
+│   ├── 20.tex
+│   ├── 21.tex
+│   ├── 22.tex
+│   ├── 23.tex
+│   ├── 24.tex
+│   ├── 25.tex
+│   ├── 3.tex
+│   ├── 4.tex
+│   ├── 5.tex
+│   ├── 6.tex
+│   ├── 7.tex
+│   ├── 8.tex
+│   ├── 9.tex
+│   └── about.tex
+├── main.aux
+├── main.log
+├── main.out
+├── main.pdf
+├── main.tex
+├── main.toc
+└── reb.bib
+
+1 directory, 34 files
+#+END_SRC
